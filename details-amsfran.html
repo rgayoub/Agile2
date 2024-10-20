@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de Amsfran</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Amsfran</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="images/amsfran.jpg" class="rounded" alt="Amsfran">
+        </div>
+        <div class="col-md-6">
+            <p>Amsfran est une région montagneuse du Haut Atlas marocain, célèbre pour ses paysages pittoresques et ses activités de plein air, notamment la randonnée et l'escalade. Les visiteurs peuvent découvrir la culture berbère et profiter de la faune et de la flore locales. C'est également le point de départ idéal pour atteindre des sommets emblématiques comme le Toubkal.</p>
+            <ul>
+                <li><strong>Région :</strong> Haut Atlas, Maroc</li>
+                <li><strong>Activités :</strong> Randonnée, découverte naturelle</li>
+                <li><strong>Prix :</strong> À partir de 300 DHS</li>
+            </ul>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#reservationModal">Réserver maintenant</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Réservation -->
+<div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">Réservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="confirmationMessage" class="alert alert-success" style="display:none;"></div>
+
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emaill">Email</label>
+                        <input type="email" class="form-control" id="emaill" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date de Réservation</label>
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Soumettre</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('emaill').value;
+        const phone = document.getElementById('phone').value;
+        const date = document.getElementById('date').value;
+
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        confirmationMessage.style.display = 'block';
+        confirmationMessage.innerHTML = `Merci <strong>${name}</strong>, votre réservation pour le <strong>${date}</strong> a été soumise avec succès. Nous vous contacterons bientôt à <strong>${email}</strong>.`;
+
+        this.reset();
+    });
+</script>
+</body>
+</html>

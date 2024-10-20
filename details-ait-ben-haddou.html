@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de Aït Ben Haddou</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Aït Ben Haddou</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="images/ben-Haddou%20.jpg" class="rounded" alt="Aït Ben Haddou">
+        </div>
+        <div class="col-md-6">
+            <p>Aït Ben Haddou est une ancienne ville fortifiée, renommée pour ses impressionnantes kasbahs en terre, qui témoignent de l'architecture traditionnelle du Maroc. Classée au patrimoine mondial de l'UNESCO, elle attire des visiteurs du monde entier, fascinés par son histoire et son esthétique unique. En outre, elle a servi de décor à de nombreux films célèbres, renforçant ainsi son statut de site culturel emblématique.</p>
+            <ul>
+                <li><strong>Région :</strong> Ouarzazate, Maroc</li>
+                <li><strong>Activités :</strong> Visite culturelle, exploration des kasbahs</li>
+                <li><strong>Prix :</strong> À partir de 500 DHS</li>
+            </ul>
+            <!-- Bouton pour ouvrir le modal -->
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#reservationModal">Réserver maintenant</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Réservation -->
+<div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">Réservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Zone pour le message de confirmation -->
+                <div id="confirmationMessage" class="alert alert-success" style="display:none;"></div>
+
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emaill">Email</label>
+                        <input type="email" class="form-control" id="emaill" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date de Réservation</label>
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Soumettre</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript pour soumission du formulaire -->
+<script>
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+
+        // Récupération des valeurs des champs
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('emaill').value; // Utilisation de 'emaill' pour le champ email
+        const phone = document.getElementById('phone').value;
+        const date = document.getElementById('date').value;
+
+        // Affichage du message de confirmation au-dessus du formulaire
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        confirmationMessage.style.display = 'block'; // Rendre le message visible
+        confirmationMessage.innerHTML = `Merci <strong>${name}</strong>, votre réservation pour le <strong>${date}</strong> a été soumise avec succès. Nous vous contacterons bientôt à <strong>${email}</strong>.`;
+
+        // Réinitialisation du formulaire
+        this.reset();
+    });
+</script>
+</body>
+</html>

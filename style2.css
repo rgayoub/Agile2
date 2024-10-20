@@ -1,0 +1,9 @@
+img {
+    width: 600px;               /* Largeur fixe */
+    height: 500px;              /* Hauteur fixe */
+    object-fit: cover;          /* Remplit le conteneur sans déformation */
+    display: block;             /* Permet d'appliquer margin correctement */
+    margin: 0 auto;             /* Centre l'image horizontalement */
+    padding-right: 60px;
+}
+
